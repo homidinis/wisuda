@@ -9,6 +9,7 @@ if (mysqli_num_rows($query)>0) {
     $undangan1=$row['undangan_1'];
     $undangan2=$row['undangan_2'];
     $nomorkursi = $row['nomorkursi'];
+    $display = $row['display'];
     $sesi = $row['sesi'];
     $fakultas = $row['fakultas'];
     $unixtime = $row['unixtime'];
@@ -3522,7 +3523,7 @@ else {
                                 >
                                     <div class="elementor-column-wrap elementor-element-populated">
                                         <div class="elementor-widget-wrap">
-                                            <div
+                                            <!-- <div
                                                 class="elementor-element elementor-element-3306cbaf wdp-sticky-section-no elementor-invisible elementor-widget elementor-widget-heading"
                                                 data-id="3306cbaf"
                                                 data-element_type="widget"
@@ -3543,7 +3544,7 @@ else {
                                                 <div class="elementor-widget-container">
                                                     <p class="elementor-heading-title elementor-size-default">"Intelligence plus character—that is the goal of true education."</p><p>Martin Luther King Jr.</p>
                                                 </div>
-                                            </div>
+                                            </div> -->
                                             <section
                                                 data-particle_enable="false"
                                                 data-particle-mobile-disabled="false"
@@ -3553,10 +3554,27 @@ else {
                                                 id="mempelai"
                                             >
                                             <!---->
-                                            <div class="yt">
-                                            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/rjZmn4awQ0w?autoplay=1&mute=1&loop=1&playlist=rjZmn4awQ0w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
-                                            <iframe width="560" height="315" src="https://www.youtube.com/embed/mJ-PnWSTi6Q?autoplay=1&mute=1&loop=1" title="Panduan Wisuda Universitas Katolik Soegijapranata" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-						</div>
+                                            <h2 style="text-align: center;">Video Tutorial</h2>
+                                            <div class="row">
+	                                            <div class="yt col-md-4">
+	                                            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/rjZmn4awQ0w?autoplay=1&mute=1&loop=1&playlist=rjZmn4awQ0w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+	                                           		<iframe width="560" height="315" src="https://www.youtube.com/embed/mJ-PnWSTi6Q" title="Panduan Wisuda Universitas Katolik Soegijapranata" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	                                           		<!-- masukan ini di belakang link jika mau autoplay -- ?autoplay=1&mute=1&loop=1 -->
+
+												</div>
+												<br>
+												<div class="yt col-md-4">
+	                                            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/rjZmn4awQ0w?autoplay=1&mute=1&loop=1&playlist=rjZmn4awQ0w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+	                                           		<iframe width="560" height="315" src="https://www.youtube.com/embed/CRItoJe7Zj8" title="Tata Cara Pemakaian Toga" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+												</div>
+												<br>
+												<div class="yt col-md-4">
+	                                            <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/rjZmn4awQ0w?autoplay=1&mute=1&loop=1&playlist=rjZmn4awQ0w" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>-->
+	                                           		<iframe width="560" height="315" src="https://www.youtube.com/embed/QZ4hSGECMUg" title="Tata Cara Penerimaan Ijazah" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+												</div>
+											</div>
                                             <!--nama2 mempelai segala macems was here, replaced with iframe-->
                                             </section>
                                         </div>
@@ -3735,10 +3753,13 @@ else {
                                                                     >
                                                                         <div class="elementor-widget-container">
                                                                             <p class="elementor-heading-title elementor-size-default">
-                                                                                Saturday<br />
+                                                                                <!-- Saturday<br />
                                                                                 <b><?php echo $tanggal;?><sup>th</sup> <?php echo $bulan;?></b><br>
-                                                                                <?php echo $jam;?>
+                                                                                <?php echo $jam;?> -->
+                                                                                <?php echo $display;?>
+
                                                                             </p>
+                                                                            <br>
                                                                             <p class="elementor-heading-title elementor-size-default" style="font-size: 12px;">Auditorium Room, Albertus 3rd Floor Unika Soegijapranata</p>
                                                                             <p class="elementor-heading-title elementor-size-default" style="font-size: 12px;">Jl. Pawiyatan Luhur Sel. IV No.1, Bendan Duwur, Kec. Gajahmungkur, Kota Semarang, Jawa Tengah 50234</p>
                                                                            
@@ -3818,27 +3839,29 @@ else {
                         <br>
                         <?php
                             if($row['sesi']==1){
-                                echo '<div class="container" style="background-color:#0B930B">'; //ijo
-                            } elseif ($row['sesi']==2){
                                 echo '<div class="container" style="background-color:#c80f0f">'; //merah
+                                // echo '<div class="container" style="background-color:#0B930B">'; //ijo
+                            } elseif ($row['sesi']==2){
+                                echo '<div class="container" style="background-color:#0B930B">'; //ijo
+                                // echo '<div class="container" style="background-color:#c80f0f">'; //merah
                             } elseif ($row['sesi']==3){
                                 echo '<div class="container" style="background-color:#f1a914">'; //kuning
                             }
                         ?>
                             <h2 style="color: white; padding-top:10px; text-align: center;">Nomor Kursi <?php echo $nomorkursi;?></h2>
                             <?php
-                                if($row['sesi'] == 1)
-                                    echo "<div class='container' style='text-align:center;'>Lokasi Parkir: Depan Justinus, depan Thomas Aquinas, Basement, dan depan ATM</div>";
-                                else if($row['sesi'] == 2)
-                                    echo "<div class='container' style='text-align:center;'>Lokasi Parkir: Depan Mikael, depan Antonius, Dormitory, Lab Anatomy Unika, dan parkiran Tinjomoyo </div>";
-                                else if($row['sesi'] == 3)
-                                {
-                                    if($fakultas == "Hukum dan Komunikasi")
-                                        echo "<div class='container' style='text-align:center;'>Lokasi Parkir: Parkiran Tinjomoyo</div>";
-                                    else
-                                        echo "<div class='container' style='text-align:center;'>Lokasi Parkir: Depan Justinus, depan Thomas Aquinas, Basement, dan depan ATM</div>";
+                                // if($row['sesi'] == 1)
+                                //     echo "<div class='container' style='text-align:center;'>Lokasi Parkir: Depan Justinus, depan Thomas Aquinas, Basement, dan depan ATM</div>";
+                                // else if($row['sesi'] == 2)
+                                //     echo "<div class='container' style='text-align:center;'>Lokasi Parkir: Depan Mikael, depan Antonius, Dormitory, Lab Anatomy Unika, dan parkiran Tinjomoyo </div>";
+                                // else if($row['sesi'] == 3)
+                                // {
+                                //     if($fakultas == "Hukum dan Komunikasi")
+                                //         echo "<div class='container' style='text-align:center;'>Lokasi Parkir: Parkiran Tinjomoyo</div>";
+                                //     else
+                                //         echo "<div class='container' style='text-align:center;'>Lokasi Parkir: Depan Justinus, depan Thomas Aquinas, Basement, dan depan ATM</div>";
 
-                                }
+                                // }
                             ?>
                             <div class="container" style="text-align: center; margin-top: 20px; color: white;width:fixed;">
                                 <h2 style="color: white;">Tiket Masuk Auditorium Wisuda (Sesi <?php echo $sesi;?>)</h2>
@@ -3847,7 +3870,17 @@ else {
                                 <h2 style="color: white; font-size: 20px;"><?php echo $nama;?></h2>
                                 <h2 style="color: white; font-size: 20px;"><?php echo $nomorkursi;?></h2>
                             </div>
+                            <div class="container" style="margin-top: 20px;color: white;width:fixed;">
+                                <p>Agar acara wisuda dapat berjalan dengan baik maka dapat mengikuti petunjuk dibawah ini.</p>
+                                <ul>
+                                	<li>QR Undangan digunakan oleh Wisudawan dan Orang Tua/Wali saat hendak memasukin lokasi Wisuda</li>
+                                    <li>Siapkan Tiket QR Undangan (Tiket dapat di Screenshoot agar lebih cepat saat proses registrasi)</li>
+                                    <li>QR Undangan dapat dishare ke orang tua / wali yang mendampingi</li>
+                                    <!-- <li>QR Undangan akan digunakan sebanyak 3 kali, yaitu untuk registrasi wisudawan, registrasi orang tua, dan pengambilan konsumsi</li> -->
+                                </ul>
+                            </div>
                              <div style="width:100% ;overflow:auto">
+                             	<h2 style="text-align: center;">Denah Ruang Wisuda</h2>
                                 <table style="text-align:center;padding:2px;margin:2px; border-spacing:5px 8px;background-color:#eac155;border-collapse:separate;border:1px 500158 solid">
                                 <?php
                                     $i = 0;
@@ -3861,7 +3894,7 @@ else {
                                         array_push($arrayKursi,$row['kursi']); 
                                     }
 
-                                    for($baris=1;$baris<17;$baris++)
+                                    for($baris=1;$baris<18;$baris++)
                                     {
                                         echo "<tr>";
                                         for($kolom = 1; $kolom<=17; $kolom++)
@@ -3883,8 +3916,8 @@ else {
                                     }
                                 ?>
                                 </table>
-                            </div> 
-                            
+                            </div>  
+                              
                         </div>              
                     </section>
                     <section
@@ -3952,9 +3985,30 @@ else {
                                                         </a>
                                                     </div>
                                                     <div class="button-undangan">
+                                                            <?php 
+                                                                if(file_exists("panduan/TataTertib.pdf"))
+                                                                {
+                                                            ?>
                                                             <a style="background-color:#eac155;color:#ffffff;margin-top:10px " class="form-control" href="panduan/TataTertib.pdf" download>Panduan Tata Tertib</a>
+                                                            <?php   
+                                                                }
+                                                            ?>
+                                                            <?php 
+                                                                if(file_exists("panduan/Rundown.pdf"))
+                                                                {
+                                                            ?>
                                                             <a style="background-color:#eac155;color:#ffffff;margin-top:10px " class="form-control" href="panduan/Rundown.pdf" download>Rundown Acara</a>
+                                                            <?php   
+                                                                }
+                                                            ?>
+                                                            <?php 
+                                                                if(file_exists("panduan/Toga.pdf"))
+                                                                {
+                                                            ?>
                                                             <a style="background-color:#eac155;color:#ffffff;margin-top:10px " class="form-control" href="panduan/Toga.pdf" download>Panduan Penggunaan Toga</a>
+                                                            <?php   
+                                                                }
+                                                            ?>
                                                         </div>
                                                 </div>
                                             </div>

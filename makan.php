@@ -28,8 +28,8 @@ $query = mysqli_query($conn, $sql);
 <script type="text/javascript" src="css/my/jquery.dataTables.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function()
-{  
-    $('#table_result').dataTable();
+	{  
+   		$('#table_result').dataTable();
 	});
 	function Simpan()
 	{
@@ -91,6 +91,7 @@ else
 }
 ?>
 	<div class='container'>
+		<h2>Presensi Konsumsi</h2>
 		<form class="form" action="simpan_makan.php" method="POST" onsubmit="Simpan()">
 		<!-- <form action="simpan_presensi.php" method="POST"> -->
 			<div class="form-group">
@@ -99,6 +100,7 @@ else
 				<input type="submit" name="submit" class="form-control btn btn-success" value="Simpan">
 			</div>
 		</form>
+		<button class="form-control" onclick="location.href='/admin/index.php';">Kembali ke Menu</button>
 	</div>
 	<div class="container">
 		<h2><?php echo $nim." - ".$nama;?></h2>
@@ -109,6 +111,7 @@ else
 					<th>Sesi 1</th>
 					<th>Sesi 2</th>
 					<th>Sesi 3</th>
+					<th>Sesi 4</th>
 				</tr>
 				<tr>
 					<td>
@@ -153,10 +156,23 @@ else
 							echo $presensi_sesi_3." / ".$total_sesi_3. "(-".$sisa_sesi_3.")";
 						?>
 					</td>
+					<td>
+						<?php 
+							$sql_pres_4 = "SELECT * FROM ".$prefix."t_makan LEFT JOIN ".$prefix."t_wisudawan ON ".$prefix."t_makan.nim = ".$prefix."t_wisudawan.nim WHERE sesi = 4 ORDER BY timestamp DESC";
+							$query_pres_4 = mysqli_query($conn, $sql_pres_4);
+							$presensi_sesi_4 = mysqli_num_rows($query_pres_4);
+
+							$sql_total_4 = "SELECT COUNT(id) AS total FROM ".$prefix."t_wisudawan WHERE sesi = 4 AND id != 1000";
+							$query_total_4 = mysqli_query($conn, $sql_total_4);
+							$row_total_4 = mysqli_fetch_array($query_total_4);
+							$total_sesi_4 = $row_total_4['total'];
+							$sisa_sesi_4 = $total_sesi_4 - $presensi_sesi_4;
+							echo $presensi_sesi_4." / ".$total_sesi_4. "(-".$sisa_sesi_4.")";
+						?>
+					</td>
 				</tr>
 			</table>
 		</h2>
-		<h2>Tabel Presensi Makan</h2>
 		<table class="table table-striped" id="table_result">
 			<thead>
 				<tr>

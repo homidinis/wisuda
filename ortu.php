@@ -3,6 +3,8 @@
 <head>
 	<title>Presensi Wisuda Universitas</title>
 </head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,width=device-width,height=device-height,target-densitydpi=device-dpi,user-scalable=yes" />
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
@@ -62,6 +64,7 @@ else
 }
 ?>
 	<div class='container'>
+		<h2>Presensi Ortu</h2>
 		<form class="form" action="simpan_ortu.php" method="POST" onsubmit="Simpan()">
 			<div class="form-group">
 				<label for="id">ID</label>
@@ -69,14 +72,15 @@ else
 				<input type="submit" name="submit" class="form-control btn btn-success" value="Simpan">
 			</div>
 		</form>
+		<button class="form-control" onclick="location.href='/admin/index.php';">Kembali ke Menu</button>
 	</div>
 	<div class="container">
-		<h2>Presensi Ortu</h2>
-							<table class='table'>
+		<table class='table'>
 			<tr>
 				<th>Sesi 1</th>
 				<th>Sesi 2</th>
 				<th>Sesi 3</th>
+				<th>Sesi 4</th>
 			</tr>
 			<tr>
 				<td>
@@ -119,6 +123,20 @@ else
 							$row_total_3 = mysqli_fetch_array($query_total_3);
 							$total_sesi_3 = $row_total_3['total'];
 							echo $presensi_sesi_3." / ".$total_sesi_3;
+						?>
+				</td>
+				<td>
+						<?php 
+							include 'conn.php';
+							$sql_pres_4 = "SELECT * FROM ".$prefix."t_ortu LEFT JOIN ".$prefix."t_wisudawan ON ".$prefix."t_ortu.nim = ".$prefix."t_wisudawan.nim WHERE sesi = 4 ORDER BY timestamp DESC";
+							$query_pres_4 = mysqli_query($conn, $sql_pres_4);
+							$presensi_sesi_4 = mysqli_num_rows($query_pres_4);
+
+							$sql_total_4 = "SELECT COUNT(id) AS total FROM ".$prefix."t_wisudawan WHERE sesi = 4";
+							$query_total_4 = mysqli_query($conn, $sql_total_4);
+							$row_total_4 = mysqli_fetch_array($query_total_4);
+							$total_sesi_4 = $row_total_4['total'];
+							echo $presensi_sesi_4." / ".$total_sesi_4;
 						?>
 				</td>
 			</tr>
