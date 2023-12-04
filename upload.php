@@ -1,5 +1,5 @@
 
- <body onload="myFunction()"> 
+ <body onpageshow="myFunction()"> 
 <?php
   
   $folderPath = "upload/";
@@ -10,7 +10,7 @@
   $file = $folderPath . uniqid() . '.'.$image_type;
   file_put_contents($file, $image_base64);
 //   echo "Signature Uploaded Successfully.";
-header("location:ttd.php")
+header( "Refresh:0; url=ttd.php", true, 303);
 
 ?>
 <script>
